@@ -20,12 +20,12 @@ t0 = time.time()
 
 #There are 143 pages if we have 100 photos per page
 
-subjid=401
+subjid=1
 csv_outfile="ApolloImages_MetaFile.csv"
 
 with open(csv_outfile, "wb"):
     writer = csv.writer(open(csv_outfile, "wb"), delimiter=',')
-for i in range(4, 20):
+for i in range(1):
     photos=ApolloArchive.getPublicPhotos(page=i, per_page=100)
 
     for p in photos:
@@ -45,7 +45,7 @@ for i in range(4, 20):
 
         print "Saving Photo {} as {}".format(subjid, filename)
 
-        p.save(savepath, size_label = 'Medium 640')
+        #p.save(savepath, size_label = 'Medium 640')
         writer.writerow( (subjid, filename, url, description, date_taken))
         
 
